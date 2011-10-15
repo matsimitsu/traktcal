@@ -20,8 +20,6 @@ set :use_sudo, false
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-after 'deploy:update_code', 'deploy:ln_uploads'
-after 'deploy:update_code', 'deploy:ln_logs'
 after 'deploy:update_code', 'deploy:link_api_keys'
 
 namespace :deploy do
@@ -31,12 +29,6 @@ namespace :deploy do
 
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
-  end
-
-  task :ln_logs do
-    run "mkdir -p #{shared_path}/logs"
-    run "touch #{shared_path}/logs/requests.log"
-    run "ln -s #{shared_path}/logs #{release_path}/logs"
   end
 
   task :link_api_keys do
