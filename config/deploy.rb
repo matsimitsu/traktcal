@@ -32,6 +32,6 @@ namespace :deploy do
   end
 
   task :link_api_keys do
-    run "ln -s #{shared_path}/config/api_keys.rb #{release_path}/lib/api_keys.rb"
+    run "ln -s #{shared_path}/config/api_keys.rb #{release_path}/config/api_keys.rb"
   end
 end
