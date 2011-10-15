@@ -1,0 +1,15 @@
+<%=
+raise @results.inspect
+RiCal.Calendar do |cal|
+
+  @results.each do |day|
+    day['episodes'].each do |show_and_episode|
+      cal.event do |event|
+        event.summary = "#{show_and_episode['show']['title']} #{"%02d" % show_and_episode['episode']['season']}X#{"%02d" % show_and_episode['episode']['number']}"
+        event.description = "#{show_and_episode['episode']['title']} \n\n #{show_and_episode['episode']['overview']}"
+        event.dtstart = DateTime.parse(day['date'])
+      end
+    end
+  end
+end
+%>
