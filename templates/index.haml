@@ -1,10 +1,32 @@
-%h1 woot
+%p See all the shows you follow on trakt.tv in your favorite calendar app!
 
-%form{ :action => '/', :method => 'post'}
-  %input{:type => 'text', :name => 'username' }
-  %input{:type => 'password', :name => 'password' }
-  %input{:type => 'submit', :value => 'Generate calendar'}
+%p Fill out the form below to get a link to your clendar feed
+
+
+%form{ :action => '/', :method => 'post', :id => 'generate-hash'}
+  %input{:type => 'text', :name => 'username', :id => 'username' }
+  %input{:type => 'password', :name => 'password', :id => 'password' }
+  %input{:type => 'submit', :value => 'Generate calendar feed'}
 
 -if @username && @password
-  %a{:href => "/calendar.ical?username=#{@username}&password=#{@password}"}
-    show calendar
+  #calendar-info
+    %h2 Here is your calendar link!
+    %span#calendar-link
+      %a{:href => "http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}"}
+        http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}
+    %h3 Now what?
+    %p Copy this link and use it with your favorite calendar app!
+
+%h3 Some things you might like to know:
+
+%ul
+  %li Your username and password are not stored anywhere
+  %li
+    The form is just a simple way to encrypt your password,
+    if you like, you can encrypt it yourself and create a url as follows:
+    http://traktcal.matsimitsu.com/calendar.ics?username=[your username here]&password=[SHA1 hash of your password]
+  %li Watched shows will be marked with [x] in your calendar
+  %li Source code will be available soon!
+
+%h3 Questions and comments?
+%p You can reach me on twitter (<a href="http://twitter.com/matsimitsu">http://twitter.com/matsimitsu</a>)

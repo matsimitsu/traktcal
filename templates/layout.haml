@@ -1,0 +1,22 @@
+!!!
+
+%html.no-js
+  %head
+    %meta{'charset' => 'utf-8'}
+    %title TraktCal
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1'}
+    %link{:href => '/application.css', :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}
+  %body
+
+
+    #content
+
+      %header#head
+        %h1 TraktCal
+      %section#main
+        = yield
+      %footer#footer
+        %p Created by Robert Beekman - css from <a href="https://github.com/sinatra/sinatra.github.com">Sinatra</a>
+  %script{:type => 'text/javascript', :src => 'http://code.jquery.com/jquery-1.6.4.min.js'}
+  %script{:type => 'text/javascript', :src => '/javascript/jquery.sha1.js'}
+  %script{:type => 'text/javascript', :src => '/javascript/application.js'}
