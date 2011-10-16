@@ -12,9 +12,10 @@
 
 #calendar-info{:style => 'display:none'}
   %h2 Here is your calendar link!
-  %span#calendar-link
-    %a{:href => "http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}"}
-      http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}
+  %pre
+    %code#calendar-link
+      %a{:href => "http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}"}
+        http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}
   %h3 Now what?
   %p Copy this link and use it with your favorite calendar app!
 
