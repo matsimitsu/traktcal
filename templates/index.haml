@@ -10,14 +10,13 @@
   %input{:type => 'password', :name => 'password', :id => 'password' }
   %input{:type => 'submit', :value => 'Generate calendar feed'}
 
--if @username && @password
-  #calendar-info
-    %h2 Here is your calendar link!
-    %span#calendar-link
-      %a{:href => "http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}"}
-        http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}
-    %h3 Now what?
-    %p Copy this link and use it with your favorite calendar app!
+#calendar-info{:style => 'display:none'}
+  %h2 Here is your calendar link!
+  %span#calendar-link
+    %a{:href => "http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}"}
+      http://traktcal.matsimitsu.com/calendar.ics?username=#{@username}&password=#{@password}
+  %h3 Now what?
+  %p Copy this link and use it with your favorite calendar app!
 
 %h3 Some things you might like to know:
 
