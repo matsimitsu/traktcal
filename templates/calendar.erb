@@ -5,7 +5,9 @@ RiCal.Calendar do |cal|
       cal.event do |event|
         event.summary = "#{show_and_episode['episode']['watched'] == true ? '[X] ' : nil }#{show_and_episode['show']['title']} #{"%02d" % show_and_episode['episode']['season']}X#{"%02d" % show_and_episode['episode']['number']}"
         event.description = "#{show_and_episode['episode']['title']} \n\n #{show_and_episode['episode']['overview']}"
-        event.dtstart = DateTime.parse(day['date'])
+        time = DateTime.parse("#{day['date']} #{show_and_episode['show']['air_time']}").with_floating_timezone rescue Date.parse(day['date'])
+        event.dtstart = time
+        event.dtend = time.advance(:minutes => show_and_episode['show']['runtime'].to_i) rescue nil
       end
     end
   end

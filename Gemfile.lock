@@ -1,6 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    activesupport (3.1.1)
+      multi_json (~> 1.0)
     capistrano (2.8.0)
       highline
       net-scp (>= 1.0.0)
@@ -10,6 +12,8 @@ GEM
     curb (0.7.15)
     haml (3.1.2)
     highline (1.6.2)
+    i18n (0.6.0)
+    multi_json (1.0.3)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -30,9 +34,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   capistrano
   curb
   haml
+  i18n
   ri_cal
   sass
   sinatra

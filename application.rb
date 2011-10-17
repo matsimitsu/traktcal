@@ -1,7 +1,8 @@
 require 'sinatra'
 require 'config/api_keys'
 require 'digest/sha1'
-
+require 'active_support'
+require 'active_support/all'
 require 'lib/trakt'
 
 class Application < Sinatra::Base
